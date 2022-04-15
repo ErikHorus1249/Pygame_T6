@@ -10,6 +10,10 @@ WIDTH, HEIGHT = 400, 712
 clock = pygame.time.Clock()
 FPS = 120
 
+# icon load image 
+icon = pygame.image.load("img/yellowbird-upflap.png")
+pygame.display.set_icon(icon)
+
 # create game's window
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 
