@@ -25,6 +25,13 @@ base_image = pygame.image.load("img/base.png")
 # base_image = pygame.transform.scale2x(base_image)
 base_image = pygame.transform.scale(base_image, (HEIGHT,200))
 
+# bird image loading 
+bird_image = pygame.image.load("img/bluebird-midflap.png")
+bird_image = pygame.transform.scale2x(bird_image)
+bird_rect = bird_image.get_rect(center = (200, 200))
+bird_movement = 0
+
+
 base_x_pos = 0
 base_y_pos = 590
 
@@ -41,6 +48,13 @@ while True:
             pygame.quit()
             sys.exit()
     
+        # bird control 
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_SPACE:
+                bird_movement = 0
+                bird_movement -= 10
+    
+    # print(f"Toc do cua con chim {bird_movement}")
     # hien thi ra bg 
     screen.blit(bg_image, (0,0))
     
@@ -50,6 +64,15 @@ while True:
     if base_x_pos < -400: # dieu kien khi thanh base di ra ngoai man hinh
         base_x_pos = 0 # reset lai gia tri cua base
     
+    # hien thi con chim 
+    # bird_movement = bird_movement + 0.25
+    bird_movement += 0.25
+    
+    # bird_rect.centery = bird_rect.centery + bird_movement
+    bird_rect.centery += bird_movement
+    
+    screen.blit(bird_image, bird_rect)
+        
     # update nhung gi chung ta hien thi         
     pygame.display.update()
     clock.tick(FPS)
