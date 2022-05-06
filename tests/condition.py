@@ -1,7 +1,13 @@
-a = int(input("get your number..."))
+# list : danh sach 
 
+a = 3 
+animals = []
 
-if a % 2 == 0 and a > 0:
-    print(f"{a} la so chan va la mot so tu nhien duong") 
-else:
-    print("So nay ko hop le voi dieu kien bai toan")
+animals.append("cat")
+animals.append("dog")
+animals.append("chicken")
+animals.append("fish")
+animals.append("bird")
+animals.append("panda")
+
+print(animals)
